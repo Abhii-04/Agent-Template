@@ -4,16 +4,6 @@ Sidekick is a browser-capable AI co-worker that keeps working until your task me
 
 It combines a Gradio chat interface, LangGraph workflow orchestration, browser automation with Playwright, web search, Wikipedia lookup, local file tools, Python execution, and an evaluator loop that checks whether the result is good enough before stopping.
 
-## Why Sidekick?
-
-Most chatbots answer once and wait for you to notice what is missing. Sidekick takes a more practical approach:
-
-- You give it a task.
-- You define what success looks like.
-- It can use tools to browse, search, write files, run Python, and gather information.
-- It evaluates its own work against your success criteria.
-- If the answer is not good enough, it loops and improves the result.
-- If it needs clarification, it asks instead of guessing.
 
 ## Features
 
@@ -114,7 +104,7 @@ Optional:
 ## Run the App
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 The Gradio app opens in your browser. Enter:
@@ -136,12 +126,14 @@ The answer must include company, role, location, experience, salary if available
 
 ```text
 .
-├── main.py           # Gradio UI and app lifecycle
-├── sidekick.py       # LangGraph agent workflow
-├── tools.py          # Browser, search, file, Python, Wikipedia, and notification tools
+├── src/
+│   ├── main.py       # Gradio UI and app lifecycle
+│   ├── sidekick.py   # LangGraph agent workflow
+│   └── tools.py      # Browser, search, file, Python, Wikipedia, and notification tools
 ├── sandbox/          # Workspace for agent-created files
 ├── requirements.txt  # Pinned Python dependencies
 ├── pyproject.toml    # Project metadata
+├── uv.lock           # uv lockfile
 └── README.md
 ```
 
@@ -150,12 +142,3 @@ The answer must include company, role, location, experience, salary if available
 - Playwright is launched with a visible Chrome browser window.
 - File operations are intentionally scoped to `sandbox/`.
 - The project currently uses DeepSeek's OpenAI-compatible API endpoint.
-- Do not commit your `.env` file or API keys.
-
-## GitHub Repository Description
-
-Browser-capable AI co-worker built with LangGraph, Playwright, and Gradio. Give it a task, define success criteria, and it loops through tools and self-evaluation until the job is done.
-
-## License
-
-Add a license before publishing if you want others to use, modify, or distribute the project.
